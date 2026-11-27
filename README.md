@@ -91,3 +91,15 @@ claude
 ```
 
 Primjer za prompt: *„Napravi igricu gdje brodom izbjegavaš asteroide u obliku Lovćena“*. Pravila za ove igrice su u `izazov/CLAUDE.md`. Rezultat se otvara na `http://localhost:4747/izazov/<ime>.html`.
+
+## Licenca
+
+Kod ovog projekta je pod [MIT licencom](LICENSE).
+
+Tuđi dijelovi zadržavaju svoje licence:
+
+| Dio | Licenca | Kako je uključen |
+|---|---|---|
+| [Three.js](https://github.com/mrdoob/three.js) | MIT | npm paket `three`, nije u repozitorijumu |
+| [MediaPipe Tasks Vision](https://github.com/google-ai-edge/mediapipe) | Apache 2.0 | npm paket `@mediapipe/tasks-vision`, nije u repozitorijumu |
+| MediaPipe model `public/models/hand_landmarker.task` | Apache 2.0 | Googleov model, uključen ovdje bez izmjena |
