@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "description": "Laboratorija koja te sluša — interaktivna 3D naučna instalacija pokretana Claude Opus 5.5 modelom",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grungert/noc-istrazivaca.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "type": "module",
   "scripts": {
     "start": "node server.js",
