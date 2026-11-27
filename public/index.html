@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="sr-Latn-ME">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laboratorija koja te sluša</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/vendor/three/build/three.module.js",
+        "three/addons/": "/vendor/three/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="stage"></div>
+
+  <header class="brand">
+    <div class="brand__title">Laboratorija <span>koja te sluša</span></div>
+    <div class="brand__sub">Noć istraživača · pokreće <b>Claude Opus 5.5</b></div>
+  </header>
+
+  <div class="top-actions">
+    <!-- cijeli ekran traži pravi klik, pa ovo dugme nije "hand-target" -->
+    <button type="button" class="top-btn" id="fullscreen-btn" title="Cijeli ekran">⛶ Cijeli ekran</button>
+    <button type="button" class="hand-target top-btn" id="reset-btn" title="Vrati Sunčev sistem (Esc)">↺ Početak</button>
+  </div>
+
+  <div class="status" id="status">
+    <span class="status__dot"></span><span id="status-text">Povezivanje…</span>
+  </div>
+
+  <div class="hud" id="hud"></div>
+
+  <div class="info" id="info" hidden></div>
+
+  <div class="visit-bar" id="visit-bar" hidden>
+    <button type="button" class="hand-target" data-act="surface">🌅 Pogled sa površine</button>
+    <button type="button" class="hand-target" data-act="back">↩ Nazad na sistem</button>
+  </div>
+
+  <aside class="panel">
+    <div class="log" id="log"></div>
+
+    <div class="chips" id="chips"></div>
+
+    <form class="ask" id="ask" autocomplete="off">
+      <button type="button" class="ask__mic" id="hands-btn" title="Upravljaj rukama preko kamere">✋</button>
+      <button type="button" class="ask__mic" id="mic" title="Govori">🎙</button>
+      <input id="input" maxlength="240" placeholder="Pitaj ili naredi nešto svemiru…" />
+      <button type="submit" class="ask__go" id="go">Pošalji</button>
+    </form>
+
+    <label class="raw-toggle"><input type="checkbox" id="raw" /> prikaži šta Claude šalje simulaciji</label>
+  </aside>
+
+  <div class="thinking" id="thinking" hidden>
+    <div class="thinking__orb"></div>
+    <div class="thinking__text">Claude razmišlja<span class="dots"></span></div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "noc-istrazivaca",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Laboratorija koja te sluša — interaktivna 3D naučna instalacija pokretana Claude Opus 5.5 modelom",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "offline": "BRAIN=offline node server.js",
+    "warmup": "node scripts/warmup.js"
+  },
+  "dependencies": {
+    "@mediapipe/tasks-vision": "^0.10.21",
+    "three": "^0.170.0"
+  }
+}
