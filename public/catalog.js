@@ -1,6 +1,6 @@
 // Stvarni podaci o tijelima Sunčevog sistema (za kartice koje iskaču na hover).
 // Simulacija koristi "igračke" razmjere, pa ovdje stoje pravi brojevi.
-export const CATALOG = {
+const CATALOG = {
   sunce: {
     tip: 'zvijezda (žuti patuljak)',
     rows: [['Prečnik', '1 392 700 km'], ['Masa', '333 000 Zemalja'], ['Površina', '≈ 5 500 °C'], ['Starost', '4,6 milijardi godina']],

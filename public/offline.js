@@ -13,7 +13,7 @@ function ring(n, r, y = 0) {
   });
 }
 
-export const MOLECULES = {
+const MOLECULES = {
   voda: {
     name: 'Voda', say: 'Evo molekula vode! Kiseonik privlači elektrone jače od vodonika, pa je molekul "savijen" pod uglom od oko 104,5°.',
     atoms: [{ el: 'O', pos: [0, 0, 0] }, { el: 'H', pos: [0.757, 0.586, 0] }, { el: 'H', pos: [-0.757, 0.586, 0] }],
