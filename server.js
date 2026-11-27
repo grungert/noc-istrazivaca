@@ -14,6 +14,7 @@ import { SYSTEM_PROMPT } from './prompt.js';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const PORT = Number(process.env.PORT || 4747);
+const HOST = process.env.HOST || '127.0.0.1'; // API troši Claude pretplatu, pa po defaultu nije otvoren ka mreži
 const MODEL = process.env.MODEL || 'claude-opus-5-5';
 const BRAIN = process.env.BRAIN || 'claude'; // 'claude' | 'offline'
 const EFFORT = process.env.EFFORT || 'low'; // low ≈ 10–20 s po odgovoru, medium ≈ 15–35 s
@@ -71,7 +72,10 @@ function readBody(req) {
     let data = '';
     req.on('data', (c) => {
       data += c;
-      if (data.length > 100_000) req.destroy();
+      if (data.length > 100_000) {
+        reject(new Error('Zahtjev je prevelik'));
+        req.destroy();
+      }
     });
     req.on('end', () => resolve(data));
     req.on('error', reject);
@@ -223,7 +227,7 @@ const server = http.createServer(async (req, res) => {
   res.writeHead(405).end();
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, HOST, () => {
   console.log(`\n  Laboratorija koja te sluša → http://localhost:${PORT}`);
   console.log(`  Mozak: ${claudeAvailable ? `${MODEL}, effort ${EFFORT} (Claude Code CLI)` : 'OFFLINE režim'}`);
   console.log(`  Molekula u kešu: ${Object.keys(cache).length}\n`);
